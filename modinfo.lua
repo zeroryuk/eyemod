@@ -52,6 +52,7 @@ configuration_options = {
     {
 		name = "custom_eye_feed", 
 		label = "Faster Feeding Animation",
+        hover = "As fast as repairing Bone armor",
 		options = 
 		{
 			{description = "True (Default)", data = true},
@@ -179,10 +180,10 @@ configuration_options = {
         {
             {description = "0", data = 0},
             {description = "5", data = 5},
-            {description = "10", data = 10},
+            {description = "10 (Default)", data = 10},
             {description = "17", data = 17},
             {description = "34", data = 34 , hover = "Same with Spear"},
-            {description = "51 (Default)", data = 51, hover = "Same with Tentacle Spike"},
+            {description = "51", data = 51, hover = "Same with Tentacle Spike"},
             {description = "68", data = 68, hover = "Same with Dark Sword"},
             {description = "102", data = 102},
         },
