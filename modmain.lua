@@ -8,6 +8,7 @@ TUNING.CUSTOM_EYE_M_ABS = GetModConfigData("custom_eye_m_abs")/100
 TUNING.CUSTOM_EYE_S_ABS = GetModConfigData("custom_eye_s_abs")/100
 
 TUNING.CUSTOM_EYE_S_DMG = GetModConfigData("custom_eye_s_dmg")
+TUNING.CUSTOM_EYE_S_DMG_BROKEN = GetModConfigData("custom_eye_s_dmg_broken")
 
 
 local function TakeDamage(self,damage_amount)
@@ -35,6 +36,11 @@ local function SetCondition(self,amount)
         else
             self.absorb_percent = 0.80
         end
+    end
+    if self.inst.components.weapon and self.absorb_percent ~= 0 then
+        self.inst.components.weapon:SetDamage(TUNING.CUSTOM_EYE_S_DMG)
+    else
+        self.inst.components.weapon:SetDamage(TUNING.CUSTOM_EYE_S_DMG_BROKEN)
     end
 end
 

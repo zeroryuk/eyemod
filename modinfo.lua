@@ -2,7 +2,7 @@
 name = "Enhanced Eye mask and Shield of Terror"
 description =  [[
     This mod makes Eye Mask and Shield of Terror easier to use.
-    
+
     Adds a config for Eye Mask and Shield of Terror.
 
     Makes them not disappear at 0% and also not work.
@@ -161,6 +161,9 @@ configuration_options = {
         label = "Shield of Terror DMG",
         options =
         {
+            {description = "0", data = 0},
+            {description = "5", data = 5},
+            {description = "10", data = 10},
             {description = "17", data = 17},
             {description = "34", data = 34 , hover = "Same with Spear"},
             {description = "51 (Default)", data = 51, hover = "Same with Tentacle Spike"},
@@ -168,5 +171,21 @@ configuration_options = {
             {description = "102", data = 102},
         },
         default = 51,
+    },
+    {
+        name = "custom_eye_s_dmg_broken",
+        label = "Shield of Terror Broken DMG",
+        options =
+        {
+            {description = "0", data = 0},
+            {description = "5", data = 5},
+            {description = "10", data = 10},
+            {description = "17", data = 17},
+            {description = "34", data = 34 , hover = "Same with Spear"},
+            {description = "51 (Default)", data = 51, hover = "Same with Tentacle Spike"},
+            {description = "68", data = 68, hover = "Same with Dark Sword"},
+            {description = "102", data = 102},
+        },
+        default = 10,
     },
 }
