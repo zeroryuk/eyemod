@@ -2,9 +2,14 @@
 name = "Enhanced Eye mask and Shield of Terror"
 description =  [[
     This mod makes Eye Mask and Shield of Terror easier to use.
+    
     Adds a config for Eye Mask and Shield of Terror.
-    Makes them not disappear at 0% and also not work. (Can be disabled in the config)
-    Repairs faster like a bone armor. (Can be disabled in the config)
+
+    Makes them not disappear at 0% and also not work.
+    (Can be disabled in the config)
+
+    Repairs faster like a bone armor.
+    (Can be disabled in the config)
             ]]
 author = "ZeroRyuk"
 version = "1.0.0" -- This is the version of the template. Change it to your own number.
