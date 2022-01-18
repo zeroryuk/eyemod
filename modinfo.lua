@@ -12,7 +12,7 @@ description =  [[
     (Can be disabled in the config)
             ]]
 author = "ZeroRyuk"
-version = "1.0.0" -- This is the version of the template. Change it to your own number.
+version = "1.0.1" -- This is the version of the template. Change it to your own number.
 
 -- This lets other players know if your mod is out of date, update it to match the current version in the game
 api_version = 10

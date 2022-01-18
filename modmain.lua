@@ -39,7 +39,7 @@ local function SetCondition(self,amount)
     end
     if self.inst.components.weapon and self.absorb_percent ~= 0 then
         self.inst.components.weapon:SetDamage(TUNING.CUSTOM_EYE_S_DMG)
-    else
+    elseif self.inst.components.weapon then
         self.inst.components.weapon:SetDamage(TUNING.CUSTOM_EYE_S_DMG_BROKEN)
     end
 end
