@@ -12,7 +12,7 @@ description =  [[
     (Can be disabled in the config)
             ]]
 author = "ZeroRyuk"
-version = "1.0.1" -- This is the version of the template. Change it to your own number.
+version = "1.0.3" -- This is the version of the template. Change it to your own number.
 
 -- This lets other players know if your mod is out of date, update it to match the current version in the game
 api_version = 10
@@ -90,6 +90,10 @@ configuration_options = {
             {description = "800", data = 800},
             {description = "900", data = 900},
             {description = "1000", data = 1000},
+            {description = "2000", data = 2000},
+			{description = "3000", data = 3000},
+			{description = "4000", data = 4000},
+			{description = "5000", data = 5000},
 			{description = "INFINITE", data = 9999},
 		},
 		default = 0,
@@ -111,9 +115,56 @@ configuration_options = {
             {description = "800", data = 800},
             {description = "900", data = 900},
             {description = "1000", data = 1000},
+            {description = "2000", data = 2000},
+			{description = "3000", data = 3000},
+			{description = "4000", data = 4000},
+			{description = "5000", data = 5000},
 			{description = "INFINITE", data = 9999},
 		},
 		default = 0,
+	},
+    Title("Repair Mult"),
+    {
+		name = "custom_eye_health_repair_mult", 
+		label = "Health Repair Multiplier",
+		hover = "4x default",
+        options =		
+        {
+			{description = "1x", data = 1},
+            {description = "1.5x", data = 1.5},
+            {description = "1.75x", data = 1.75},
+			{description = "2x", data = 2},
+            {description = "3x", data = 3},
+			{description = "4x", data = 4},
+            {description = "5x", data = 5},
+            {description = "6x", data = 6},
+            {description = "7x", data = 7},
+            {description = "8x", data = 8},
+            {description = "9x", data = 9},
+            {description = "10x", data = 10},
+		},
+		default = 4,
+	},
+    {
+		name = "custom_eye_hunger_repair_mult", 
+		label = "Hunger Repair Multiplier",
+		hover = "1.75x default",
+        options =		
+        {
+			{description = "1x", data = 1},
+            {description = "1.5x", data = 1.5},
+            {description = "1.75x", data = 1.75},
+			{description = "2x", data = 2},
+            {description = "3x", data = 3},
+			{description = "4x", data = 4},
+            {description = "5x", data = 5},
+            {description = "6x", data = 6},
+            {description = "7x", data = 7},
+            {description = "8x", data = 8},
+            {description = "9x", data = 9},
+            {description = "10x", data = 10},
+		},
+		default = 1.75,
 	},
     Title("Damage Absorbed/Blocked"),
 	{
@@ -189,4 +240,5 @@ configuration_options = {
         },
         default = 10,
     },
+    
 }

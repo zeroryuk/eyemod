@@ -10,6 +10,8 @@ TUNING.CUSTOM_EYE_S_ABS = GetModConfigData("custom_eye_s_abs")/100
 TUNING.CUSTOM_EYE_S_DMG = GetModConfigData("custom_eye_s_dmg")
 TUNING.CUSTOM_EYE_S_DMG_BROKEN = GetModConfigData("custom_eye_s_dmg_broken")
 
+TUNING.CUSTOM_EYE_HEALTH_REPAIR_MULT = GetModConfigData("custom_eye_health_repair_mult") or 4
+TUNING.CUSTOM_EYE_HUNGER_REPAIR_MULT = GetModConfigData("custom_eye_hunger_repair_mult") or 1.75
 
 local function TakeDamage(self,damage_amount)
     if self.condition > damage_amount then
@@ -44,59 +46,66 @@ local function SetCondition(self,amount)
     end
 end
 
+
 AddPrefabPostInit("eyemaskhat", function(inst)
 	if not GLOBAL.TheWorld.ismastersim then return inst end
-        if TUNING.CUSTOM_EYE_UBREAKABLE then
-            inst.components.armor.TakeDamage = TakeDamage
-            inst.components.armor.SetCondition = SetCondition
-        end
-        if TUNING.CUSTOM_EYE_M_DUR < 9999 then
-            local amount = 0
-            local absorb_percent = 0
-            if TUNING.CUSTOM_EYE_M_DUR ~= 0 then
-                amount = TUNING.CUSTOM_EYE_M_DUR
-            else
-                amount = TUNING.ARMOR_FOOTBALLHAT
-            end
-            if TUNING.CUSTOM_EYE_M_ABS ~= TUNING.ARMOR_FOOTBALLHAT_ABSORPTION then
-                absorb_percent = TUNING.CUSTOM_EYE_M_ABS
-            else
-                absorb_percent = TUNING.ARMOR_FOOTBALLHAT_ABSORPTION
-            end
-            inst.components.armor.oldabs = absorb_percent
-            inst.components.armor:InitCondition(amount, absorb_percent)
+    if TUNING.CUSTOM_EYE_UBREAKABLE then
+        inst.components.armor.TakeDamage = TakeDamage
+        inst.components.armor.SetCondition = SetCondition
+    end
+    if TUNING.CUSTOM_EYE_M_DUR < 9999 then
+        local amount = 0
+        local absorb_percent = 0
+        if TUNING.CUSTOM_EYE_M_DUR ~= 0 then
+            amount = TUNING.CUSTOM_EYE_M_DUR
         else
-            inst.components.armor:InitIndestructible(TUNING.CUSTOM_EYE_M_ABS)
+            amount = TUNING.ARMOR_FOOTBALLHAT
         end
+        if TUNING.CUSTOM_EYE_M_ABS ~= TUNING.ARMOR_FOOTBALLHAT_ABSORPTION then
+            absorb_percent = TUNING.CUSTOM_EYE_M_ABS
+        else
+            absorb_percent = TUNING.ARMOR_FOOTBALLHAT_ABSORPTION
+        end
+        inst.components.armor.oldabs = absorb_percent
+        inst.components.armor:InitCondition(amount, absorb_percent)
+    else
+        inst.components.armor:InitIndestructible(TUNING.CUSTOM_EYE_M_ABS)
+    end
+    if inst.components.eater then
+        inst.components.eater:SetAbsorptionModifiers(TUNING.CUSTOM_EYE_HEALTH_REPAIR_MULT,TUNING.CUSTOM_EYE_HUNGER_REPAIR_MULT , 0)
+    end
 end)
 
 AddPrefabPostInit("shieldofterror", function(inst)
 	if not GLOBAL.TheWorld.ismastersim then return inst end
-        if TUNING.CUSTOM_EYE_UBREAKABLE then
-            inst.components.armor.TakeDamage = TakeDamage
-            inst.components.armor.SetCondition = SetCondition
-        end
-        if TUNING.CUSTOM_EYE_S_DMG ~= TUNING.SHIELDOFTERROR_DAMAGE then
-            inst.components.weapon:SetDamage(TUNING.CUSTOM_EYE_S_DMG)
-        end
-        if TUNING.CUSTOM_EYE_S_DUR < 9999 then
-            local amount = 0
-            local absorb_percent = 0
-            if TUNING.CUSTOM_EYE_S_DUR ~= 0 then
-                amount = TUNING.CUSTOM_EYE_S_DUR
-            else
-                amount = TUNING.SHIELDOFTERROR_ARMOR
-            end
-            if TUNING.CUSTOM_EYE_S_ABS ~= TUNING.SHIELDOFTERROR_ABSORPTION then
-                absorb_percent = TUNING.CUSTOM_EYE_S_ABS
-            else
-                absorb_percent = TUNING.SHIELDOFTERROR_ABSORPTION
-            end
-            inst.components.armor.oldabs = absorb_percent
-            inst.components.armor:InitCondition(amount, absorb_percent)
+    if TUNING.CUSTOM_EYE_UBREAKABLE then
+        inst.components.armor.TakeDamage = TakeDamage
+        inst.components.armor.SetCondition = SetCondition
+    end
+    if TUNING.CUSTOM_EYE_S_DMG ~= TUNING.SHIELDOFTERROR_DAMAGE then
+        inst.components.weapon:SetDamage(TUNING.CUSTOM_EYE_S_DMG)
+    end
+    if TUNING.CUSTOM_EYE_S_DUR < 9999 then
+        local amount = 0
+        local absorb_percent = 0
+        if TUNING.CUSTOM_EYE_S_DUR ~= 0 then
+            amount = TUNING.CUSTOM_EYE_S_DUR
         else
-            inst.components.armor:InitIndestructible(TUNING.CUSTOM_EYE_S_ABS)
+            amount = TUNING.SHIELDOFTERROR_ARMOR
         end
+        if TUNING.CUSTOM_EYE_S_ABS ~= TUNING.SHIELDOFTERROR_ABSORPTION then
+            absorb_percent = TUNING.CUSTOM_EYE_S_ABS
+        else
+            absorb_percent = TUNING.SHIELDOFTERROR_ABSORPTION
+        end
+        inst.components.armor.oldabs = absorb_percent
+        inst.components.armor:InitCondition(amount, absorb_percent)
+    else
+        inst.components.armor:InitIndestructible(TUNING.CUSTOM_EYE_S_ABS)
+    end
+    if inst.components.eater then
+        inst.components.eater:SetAbsorptionModifiers(TUNING.CUSTOM_EYE_HEALTH_REPAIR_MULT,TUNING.CUSTOM_EYE_HUNGER_REPAIR_MULT , 0)
+    end
 end)
 
 if TUNING.CUSTOM_EYE_FEED then
