@@ -12,7 +12,7 @@ description =  [[
     (Can be disabled in the config)
             ]]
 author = "ZeroRyuk"
-version = "1.0.3" -- This is the version of the template. Change it to your own number.
+version = "1.0.4" -- This is the version of the template. Change it to your own number.
 
 -- This lets other players know if your mod is out of date, update it to match the current version in the game
 api_version = 10
@@ -220,7 +220,14 @@ configuration_options = {
             {description = "34", data = 34 , hover = "Same with Spear"},
             {description = "51 (Default)", data = 51, hover = "Same with Tentacle Spike"},
             {description = "68", data = 68, hover = "Same with Dark Sword"},
+            {description = "85", data = 85},
             {description = "102", data = 102},
+            {description = "119", data = 119},
+            {description = "136", data = 136},
+            {description = "153", data = 153},
+            {description = "170", data = 170},
+            {description = "187", data = 187},
+            {description = "204", data = 204},
         },
         default = 51,
     },
