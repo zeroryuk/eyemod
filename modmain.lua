@@ -112,7 +112,7 @@ if TUNING.CUSTOM_EYE_FEED then
     local function FeedAnim(self)
         local old_feed = self.actionhandlers[GLOBAL.ACTIONS.FEED].deststate
         self.actionhandlers[GLOBAL.ACTIONS.FEED].deststate = function(inst,action,...)
-            if action.target.prefab == "shieldofterror" or action.target.prefab == "eyemaskhat" then
+            if action.target and (action.target.prefab == "shieldofterror" or action.target.prefab == "eyemaskhat") then
                 return "doshortaction"
             else
                 return old_feed(inst,action,...)
